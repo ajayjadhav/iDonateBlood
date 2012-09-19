@@ -8,6 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
+        <AppBar Height="20">
+            <Button>Search</Button>
+        </AppBar>
     </Grid>
 </Page>
