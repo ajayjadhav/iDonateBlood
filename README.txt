@@ -1,0 +1,1 @@
+iDonateBlood is Windows Store App. It hosts a list of registered blood donors. Patients with the help of their relatives who are in need of blood can use this app to search blood donors matching with specific blood group in the city.
