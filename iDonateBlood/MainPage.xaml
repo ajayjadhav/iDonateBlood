@@ -5,11 +5,79 @@
     xmlns:local="using:iDonateBlood"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    d:DesignHeight="768" d:DesignWidth="1366">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        <AppBar Height="20">
-            <Button>Search</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="320" />
+            <!--<RowDefinition Height="*" />-->
+        </Grid.RowDefinitions>
+        <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
+            <TextBlock
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Text="Donner's List" Foreground="White"
+                FontSize="26.67" Margin="0,40,0,20"
+            />
+
+        </Border>
+
+        <Border x:Name="SearchPanel" Height="Auto" BorderBrush="Gray" BorderThickness="5" Width="400" Grid.Column="1">
+            <StackPanel Orientation="Vertical" Width="400">
+                <TextBlock
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Text="SearchPanel" Foreground="White"
+                FontSize="26.67" Margin="0,40,0,0" Width="260"
+                />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        HorizontalAlignment="Left" 
+                        Text="City:" 
+                        Foreground="White"
+                        FontSize="20" 
+                        Margin="2" 
+                        Width="80"
+                        >
+                    </TextBlock>
+                    <ComboBox x:Name="cbCity" 
+                              ItemsSource="{Binding MyItemsSource, Mode=OneWay}"
+                              SelectedValue="{Binding MySelectedValue, Mode=TwoWay}"
+                              HorizontalAlignment="Left" 
+                              Margin="2" Width="200">
+                        <!--<x:String>Pune</x:String>
+                        <x:String>Mumbai</x:String>
+                        <x:String>Banglore</x:String>-->
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        HorizontalAlignment="Left" 
+                        Text="Blood Group:" 
+                        Foreground="White"
+                        FontSize="20" 
+                        Margin="2" 
+                        Width="160"
+                        >
+                    </TextBlock>
+                    <ComboBox x:Name="cbBloodGroup" HorizontalAlignment="Left" Margin="2" Width="100">
+                        <x:String>O +</x:String>
+                        <x:String>AB +</x:String>
+                        <x:String>B +</x:String>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <AppBar VerticalAlignment="Bottom" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button  Content="Edit" Foreground="White" />
+                <Button  Content="Login" Foreground="White" />
+            </StackPanel>
         </AppBar>
     </Grid>
 </Page>
