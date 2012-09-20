@@ -24,6 +24,7 @@ namespace iDonateBlood
         public MainPage()
         {
             this.InitializeComponent();
+            //
         }
 
         /// <summary>
