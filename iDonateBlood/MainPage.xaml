@@ -14,9 +14,9 @@
             <ColumnDefinition Width="400" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="320" />
             <RowDefinition Height="*" />
+        
+            <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
             <TextBlock
@@ -73,8 +73,8 @@
             </StackPanel>
         </Border>
 
-        <AppBar VerticalAlignment="Bottom" Width="Auto" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <AppBar VerticalAlignment="Bottom" Width="Auto" Height="100" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
+            <StackPanel Orientation="Horizontal">
                 <Button  Content="Edit" Foreground="White" />
                 <Button  Content="Login" Foreground="White" />
             </StackPanel>
