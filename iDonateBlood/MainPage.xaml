@@ -74,8 +74,8 @@
         </Border>
 
         <AppBar VerticalAlignment="Bottom" Width="Auto" Height="100" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="0">
-            <StackPanel Orientation="Horizontal">
-                <Button  Content="Edit" Foreground="White" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button  Content="Register as Donor" Foreground="White" />
                 <Button  Content="Login" Foreground="White" />
             </StackPanel>
         </AppBar>
