@@ -7,17 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="768" d:DesignWidth="1366">
-    
-    
+
+
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="400" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-        
+
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
@@ -27,52 +27,63 @@
                 Text="Donner's List" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,20"
             />
+                <ScrollViewer MaxHeight="570">
+                    <ListView x:Name="donnerList" BorderBrush="LightGray" BorderThickness="1" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Width="Auto">
+                                    <Image Width="64" Height="64" Margin="20" Source="/Assets/user_64.png" />
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <!--<ColumnDefinition Width="140" />-->
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<TextBlock Text="Name:" Foreground="White" FontSize="20" Margin="2"  Grid.Row="0"></TextBlock>-->
+                                        <TextBlock Text="{Binding Path=FullName}" Foreground="White" FontSize="26" Margin="2" Grid.Row="0" Grid.Column="1"></TextBlock>
+                                        <!--<TextBlock Text="Email:" Foreground="White" FontSize="20" Margin="2" Grid.Row="1" VerticalAlignment="Center"></TextBlock>-->
+                                        <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1">
+                                            <Button Style="{StaticResource ResourceKey=EmailButton}" VerticalAlignment="Center"></Button>
+                                            <TextBlock Text="{Binding Path=Email}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
+                                            
+                                        </StackPanel>
+                                        <!--<TextBlock Text="Cell#:" Foreground="White" FontSize="20" Margin="2" Grid.Row="2" VerticalAlignment="Center"></TextBlock>-->
+                                        
+                                        <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
+                                            <Button Style="{StaticResource ResourceKey=PhoneCallButton}" VerticalAlignment="Center"></Button>
+                                            <TextBlock Text="{Binding Path=MobileNumber}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
+                                            
+                                        </StackPanel>
 
-                <ListView x:Name="donnerList"  BorderThickness="1" BorderBrush="Green"                >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Width="Auto">
-                                <Image Width="64" Height="64" Margin="20" Source="/Assets/user_64.png" />
-                                
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition ></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="130" />
-                                        <ColumnDefinition Width="Auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="Name:" Foreground="White" FontSize="20" Margin="2"  Grid.Row="0"></TextBlock>
-                                    <TextBlock Text="{Binding Path=FullName}" Foreground="White" FontSize="26" Margin="2" Grid.Row="0" Grid.Column="1"></TextBlock>
-                                    <TextBlock Text="Email:" Foreground="White" FontSize="20" Margin="2" Grid.Row="1"></TextBlock>
-                                    <TextBlock Text="{Binding Path=Email}" Foreground="White" FontSize="20" Margin="2" Grid.Row="1" Grid.Column="1"></TextBlock>
-                                    <TextBlock Text="Cell#:" Foreground="White" FontSize="20" Margin="2" Grid.Row="2" VerticalAlignment="Center"></TextBlock>
-                                    <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
-                                        <TextBlock Text="{Binding Path=MobileNumber}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
-                                        <Button Style="{StaticResource ResourceKey=PhoneCallButton}" VerticalAlignment="Center"></Button>
-                                    </StackPanel>
-                                    
-                                    <TextBlock Text="Address:" Foreground="White" FontSize="20" Margin="2" Grid.Row="3"></TextBlock>
-                                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                                        <TextBlock Text="{Binding Path=Address}" TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text="{Binding Path=State}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                        <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                    </StackPanel>
-                                    <TextBlock Text="Last Donated On:" TextWrapping="Wrap"  Foreground="White" Grid.Row="4" FontSize="20" Margin="2"  ></TextBlock>
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                        <!--<TextBlock Text="Address:" Foreground="White" FontSize="20" Margin="2" Grid.Row="3"></TextBlock>-->
+                                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                                            <Button Style="{StaticResource ResourceKey=AddressButton}" VerticalAlignment="Center"></Button>
+                                            <TextBlock Text="{Binding Path=Address}" TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                            <!--<TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock Text="{Binding Path=State}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>-->
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"  Grid.Row="4" Grid.Column="1">
+                                            <TextBlock Text="Last Donated On:" TextWrapping="Wrap"  Foreground="White"  ></TextBlock>
+                                            <TextBlock Text="{Binding Path=LastDonatedOn}" TextWrapping="Wrap"  Foreground="White"   ></TextBlock>
+                                        </StackPanel>
+                                    </Grid>
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollViewer>
             </StackPanel>
 
         </Border>
@@ -119,7 +130,7 @@
                               SelectedValue="{Binding SelectedBloodGroup, Mode=TwoWay}"
                               HorizontalAlignment="Left" Margin="2" Width="200">
                     </ComboBox>
-                    
+
                 </StackPanel>
                 <Button Content="Search" Foreground="White" FontSize="20"></Button>
             </StackPanel>
