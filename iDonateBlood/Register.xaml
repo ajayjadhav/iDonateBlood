@@ -76,9 +76,10 @@
             <ComboBox x:Name="cmb_BloodGroups" ItemsSource="{Binding BloodGroups, Mode=TwoWay}" Width="250" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             
             <TextBlock Text="Last Donated On" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="2" />
-            <TextBox x:Name="txt_LastDonatedOn" IsEnabled="{Binding IsEverDonated, Mode=TwoWay}" Width="150" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <CheckBox Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
-                      DataContext="{Binding NeverDonated, Mode=TwoWay}" />
+            <TextBox x:Name="txt_LastDonatedOn"
+                     Width="150" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <!--<CheckBox x:Name="isDonatedBefore" Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
+                      DataContext="{Binding NeverDonated, Mode=TwoWay}" />-->
 
             <!--<ToggleButton x:Name="NeverDonated" Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
                       DataContext="{Binding BloodGroups, Mode=TwoWay}" />-->
