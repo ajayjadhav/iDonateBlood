@@ -366,11 +366,17 @@ namespace iDonateBlood.Common
         /// <param name="e">Event data that describes how this page was reached.  The Parameter
         /// property provides the group to be displayed.</param>
         protected override void OnNavigatedFrom(NavigationEventArgs e)
+        
         {
-            var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
-            var pageState = new Dictionary<String, Object>();
-            this.SaveState(pageState);
-            frameState[_pageKey] = pageState;
+            try
+            {
+                var frameState = SuspensionManager.SessionStateForFrame(this.Frame);
+                var pageState = new Dictionary<String, Object>();
+                this.SaveState(pageState);
+                frameState[_pageKey] = pageState;
+            }
+            catch(Exception){
+            }
         }
 
         /// <summary>

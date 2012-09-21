@@ -101,6 +101,9 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <SDKReference Include="LiveSDKXAML, Version=5.0">
+      <Name>Live SDK</Name>
+    </SDKReference>
     <SDKReference Include="MobileServicesManagedClient, Version=0.2.0.0">
       <Name>Windows Azure Mobile Services Managed Client</Name>
     </SDKReference>
@@ -117,6 +120,9 @@
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="IDBViewModelLocator.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\BloodDonors.cs" />
     <Compile Include="SearchDonorDetails.xaml.cs">
       <DependentUpon>SearchDonorDetails.xaml</DependentUpon>
@@ -126,9 +132,6 @@
     </Compile>
     <Compile Include="SearchDonor.xaml.cs">
       <DependentUpon>SearchDonor.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\RegistrationData.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -155,6 +158,7 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Common\ReadMe.txt" />
     <Page Include="SearchDonorDetails.xaml">
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -182,10 +186,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Common\StandardStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
