@@ -1826,4 +1826,12 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="PhoneCallButton" TargetType="Button" BasedOn="{StaticResource AppBarButtonStyle}">
+        <Setter Property="AutomationProperties.AutomationId" Value="PhoneCallButton"/>
+        <!--<Setter Property="AutomationProperties.Name" Value="Crop"/>-->
+        <Setter Property="Content" Value=""/>
+    </Style>
 </ResourceDictionary>
+
+    

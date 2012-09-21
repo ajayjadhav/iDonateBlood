@@ -9,13 +9,53 @@ using Windows.UI.Xaml.Data;
 namespace iDonateBlood
 {
     public class Donor
-    { 
-        
+    {
+        public string Email { get; set; }
+        public string FullName { get; set; }
+        public Nullable<DateTime> LastDonatedOn { get; set; }
+        public Int64 MobileNumber { get; set; }
+        //public string FullAddress { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
+
     }
     public class CityandBloodGroup : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        /*-----------------------DonorList---------------------------*/
+        private List<Donor> _donorList =
+            new List<Donor>() { new Donor() { FullName = "Andy Smirnov1", 
+                                              Address = "asasd, asdasd, asd, ahjsdfhjasdjfgbasdgbf", 
+                                              City = "Pune", 
+                                              Country = "India", 
+                                              State = "MH",
+                                              Email = "andy_smirnov@hotmail.com", 
+                                              LastDonatedOn = null, 
+                                              MobileNumber = 9865962569 },
+                               new Donor() { FullName = "Andy Smirnov2", 
+                                              Address = "asasd,asdasd,asd,", 
+                                              City = "Pune", 
+                                              Country = "India", 
+                                              State = "MH", 
+                                              Email = "andy_smirnov@hotmail.com", 
+                                              LastDonatedOn = null, 
+                                              MobileNumber = 9865962569 },
+                               new Donor() { FullName = "Andy Smirnov3", 
+                                              Address = "asasd,asdasd,asd,", 
+                                              City = "Pune", 
+                                              Country = "India", 
+                                              State = "MH", 
+                                              Email = "andy_smirnov@hotmail.com", 
+                                              LastDonatedOn = null, 
+                                              MobileNumber = 9865962569 }
+                             };
 
+        public List<Donor> DonorList
+        {
+            get { return _donorList; }
+        }
         /*---------------City List----------------------*/
         private IEnumerable<string> _cityList = new List<string>
         {
