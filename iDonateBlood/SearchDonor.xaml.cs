@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iDonateBlood.Models;
+using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,9 +27,13 @@ namespace iDonateBlood
         {
             this.InitializeComponent();
             //test
-            var asd = new CityandBloodGroup();
-            this.DataContext = asd;
-            donnerList.ItemsSource = asd.DonorList;
+            this.DataContext = new CityandBloodGroup();
+            //donnerList.ItemsSource = App.MobileService.GetTable<BloodDonors>();
+            IMobileServiceTable<BloodDonors> donorTableList= App.MobileService.GetTable<BloodDonors>();
+            MobileServiceCollectionView<BloodDonors> items = donorTableList.ToCollectionView();
+            var asdsad = items.Take(1);
+            donorList.ItemsSource = items;
+            
         }
 
         /// <summary>

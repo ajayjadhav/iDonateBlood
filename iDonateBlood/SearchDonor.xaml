@@ -28,7 +28,7 @@
                 FontSize="26.67" Margin="0,40,0,20"
             />
                 <ScrollViewer MaxHeight="570">
-                    <ListView x:Name="donnerList" BorderBrush="LightGray" BorderThickness="1" >
+                    <ListView x:Name="donorList" BorderBrush="LightGray" BorderThickness="1" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Width="Auto">
@@ -47,35 +47,35 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <!--<TextBlock Text="Name:" Foreground="White" FontSize="20" Margin="2"  Grid.Row="0"></TextBlock>-->
-                                        <TextBlock Text="{Binding Path=FullName}" Foreground="White" FontSize="26" Margin="2" Grid.Row="0" Grid.Column="1"></TextBlock>
+                                        <TextBlock x:Name="Fullname" Text="{Binding Path=FullName}" Foreground="White" FontSize="26" Margin="2" Grid.Row="0" Grid.Column="1"></TextBlock>
                                         <!--<TextBlock Text="Email:" Foreground="White" FontSize="20" Margin="2" Grid.Row="1" VerticalAlignment="Center"></TextBlock>-->
                                         <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1">
                                             <Button Style="{StaticResource ResourceKey=EmailButton}" VerticalAlignment="Center"></Button>
-                                            <TextBlock Text="{Binding Path=Email}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
+                                            <TextBlock x:Name="Email"  Text="{Binding Path=Email}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
                                             
                                         </StackPanel>
                                         <!--<TextBlock Text="Cell#:" Foreground="White" FontSize="20" Margin="2" Grid.Row="2" VerticalAlignment="Center"></TextBlock>-->
                                         
                                         <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
                                             <Button Style="{StaticResource ResourceKey=PhoneCallButton}" VerticalAlignment="Center"></Button>
-                                            <TextBlock Text="{Binding Path=MobileNumber}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
+                                            <TextBlock x:Name="MobileNumber"  Text="{Binding Path=MobileNumber}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
                                             
                                         </StackPanel>
 
                                         <!--<TextBlock Text="Address:" Foreground="White" FontSize="20" Margin="2" Grid.Row="3"></TextBlock>-->
                                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                                             <Button Style="{StaticResource ResourceKey=AddressButton}" VerticalAlignment="Center"></Button>
-                                            <TextBlock Text="{Binding Path=Address}" TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
-                                            <!--<TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                            <TextBlock x:Name="FullAddress"  Text="{Binding Path=Address}" TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                            <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
                                             <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
                                             <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
                                             <TextBlock Text="{Binding Path=State}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
                                             <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                            <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>-->
+                                            <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal"  Grid.Row="4" Grid.Column="1">
-                                            <TextBlock Text="Last Donated On:" TextWrapping="Wrap"  Foreground="White"  ></TextBlock>
-                                            <TextBlock Text="{Binding Path=LastDonatedOn}" TextWrapping="Wrap"  Foreground="White"   ></TextBlock>
+                                            <TextBlock Text="Last Donated On:- " TextWrapping="Wrap"  Foreground="White"  ></TextBlock>
+                                            <TextBlock x:Name="LastDonatedOn" Text="{Binding Path=LastDonatedOn, Converter={StaticResource DateTypeConverter}}"  TextWrapping="Wrap"  Foreground="White"   ></TextBlock>
                                         </StackPanel>
                                     </Grid>
                                 </StackPanel>

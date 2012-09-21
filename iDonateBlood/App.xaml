@@ -7,7 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <local:IDBViewModelLocator x:Name="Locator"></local:IDBViewModelLocator>
-
+            <local:DateTypeConverter x:Name="DateTypeConverter"></local:DateTypeConverter>
             <ResourceDictionary.MergedDictionaries>
 
                 <!-- 
