@@ -50,6 +50,22 @@
             <StackPanel Grid.ColumnSpan="2">
                 <TextBlock Text="Login" FontSize="26.67" FontFamily="Segoe UI" />
             </StackPanel>
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                <Border>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="100"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=""/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </Border>
+            </Grid>
             
         </Grid>
 
