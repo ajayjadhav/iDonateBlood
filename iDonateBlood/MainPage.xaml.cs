@@ -68,7 +68,9 @@ namespace iDonateBlood
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            authenticationProgress.IsEnabled = true;
             await Authenticate();
+            authenticationProgress.IsEnabled = false;
             NavigateToSearch();
         }
 
