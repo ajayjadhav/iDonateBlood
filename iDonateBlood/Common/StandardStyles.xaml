@@ -1844,6 +1844,8 @@
         <Setter Property="AutomationProperties.AutomationId" Value="AddressButton"/>
         <!--<Setter Property="AutomationProperties.Name" Value="Crop"/>-->
         <Setter Property="Height" Value="64"/>
+        <Setter Property="Background" Value="Black"/>
+        
         <Setter Property="Content" Value=""/>
     </Style>
     
