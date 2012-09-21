@@ -56,15 +56,16 @@ HorizontalAlignment="Center" IsActive="True"
         MaxHeight="30" MinHeight="30" MaxWidth="30" 
 MinWidth="30"></ProgressRing>-->
 
-                        <TextBlock
+                        <!--<TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Text="Donner's List" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,20"
-            />
-                        <ScrollViewer MaxHeight="440">
+            />-->
+                        <ScrollViewer MaxHeight="540">
                             <ListView x:Name="donorList" BorderBrush="LightGray" BorderThickness="1" >
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
+                                    <Grid Background="PURPLE">
                                         <StackPanel Orientation="Horizontal" Width="Auto">
                                             <Image Width="64" Height="64" Margin="20" Source="/Assets/user_64.png" />
                                             <Grid>
@@ -81,7 +82,7 @@ MinWidth="30"></ProgressRing>-->
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
                                                 <!--<TextBlock Text="Name:" Foreground="White" FontSize="20" Margin="2"  Grid.Row="0"></TextBlock>-->
-                                                <TextBlock x:Name="Fullname" Text="{Binding Path=FullName}" Foreground="White" FontSize="26" Margin="2" Grid.Row="0" Grid.Column="1"></TextBlock>
+                                                <TextBlock x:Name="Fullname" Text="{Binding Path=FullName}" Foreground="White" FontSize="26"  Grid.Row="0" Grid.Column="1"></TextBlock>
                                                 <!--<TextBlock Text="Email:" Foreground="White" FontSize="20" Margin="2" Grid.Row="1" VerticalAlignment="Center"></TextBlock>-->
                                                 <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1">
                                                     <Button Style="{StaticResource ResourceKey=EmailButton}" VerticalAlignment="Center"></Button>
@@ -100,12 +101,12 @@ MinWidth="30"></ProgressRing>-->
                                                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                                                     <Button Style="{StaticResource ResourceKey=AddressButton}" VerticalAlignment="Center"></Button>
                                                     <TextBlock x:Name="FullAddress"  Text="{Binding Path=Address}" TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
-                                                    <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                                    <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                                    <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                                    <TextBlock Text="{Binding Path=State}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                                    <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" Margin="2" ></TextBlock>
-                                                    <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" Margin="2" ></TextBlock>
+                                                <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20"  VerticalAlignment="Center"></TextBlock>
+                                                <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock Text="{Binding Path=State}" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                                <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal"  Grid.Row="4" Grid.Column="1">
                                                     <TextBlock Text="Last Donated On:- " TextWrapping="Wrap"  Foreground="White"  ></TextBlock>
@@ -113,8 +114,8 @@ MinWidth="30"></ProgressRing>-->
                                                 </StackPanel>
                                             </Grid>
                                         </StackPanel>
-
-                                    </DataTemplate>
+                                    </Grid>
+                                </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
                         </ScrollViewer>
@@ -122,14 +123,14 @@ MinWidth="30"></ProgressRing>-->
 
                 </Border>
 
-                <Border x:Name="SearchPanel" Height="Auto" BorderBrush="Gray" BorderThickness="5" Width="400" Grid.Column="1">
+                <Border x:Name="SearchPanel" Height="Auto" BorderBrush="Gray" Padding="0,20" BorderThickness="5" Width="400" Grid.Column="1">
                     <StackPanel Orientation="Vertical" Width="400">
-                        <TextBlock
+                        <!--<TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Text="Search Blood Donner" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,0" Width="260"
-                />
-                        <StackPanel Orientation="Horizontal">
+                />-->
+                        <StackPanel Orientation="Horizontal" Margin="0,10">
                             <TextBlock 
                         HorizontalAlignment="Left" 
                         Text="City:" 
@@ -149,7 +150,7 @@ MinWidth="30"></ProgressRing>-->
                         <x:String>Banglore</x:String>-->
                             </ComboBox>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0,20">
                             <TextBlock 
                         HorizontalAlignment="Left" 
                         Text="Blood Group:" 
