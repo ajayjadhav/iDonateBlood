@@ -25,6 +25,7 @@ namespace iDonateBlood
         {
             this.InitializeComponent();
             //test
+            this.DataContext = new CityandBloodGroup();
         }
 
         /// <summary>
@@ -34,6 +35,11 @@ namespace iDonateBlood
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+        }
+
+        private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var city = cbCity.SelectedItem;
         }
     }
 }
