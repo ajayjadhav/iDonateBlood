@@ -12,20 +12,13 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
-namespace iDonateBlood
+namespace iDonateBlood.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MyMvvmView : Page
     {
-        public MainPage()
+        public MyMvvmView()
         {
             this.InitializeComponent();
-            //test
-            this.DataContext = new CityandBloodGroup();
         }
 
         /// <summary>
@@ -35,16 +28,6 @@ namespace iDonateBlood
         /// property is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-        }
-
-        private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var city = cbCity.SelectedItem;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Register));
         }
     }
 }

@@ -1,15 +1,16 @@
 ﻿<common:LayoutAwarePage
     x:Name="pageRoot"
     x:Class="iDonateBlood.Register"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:iDonateBlood"
     xmlns:common="using:iDonateBlood.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    DataContext="{Binding RegisterDonorViewModel, Source={StaticResource Locator}}">
 
+    
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">Register as Donor</x:String>
@@ -39,14 +40,15 @@
 
         <Grid Grid.Row="1" Margin="120,2" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
-                <RowDefinition Height="35"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
@@ -56,46 +58,55 @@
             </Grid.ColumnDefinitions>
             
             <!-- Row 1 -->
-            <TextBlock Text="Email (as login name)" FontFamily="Segua UI" FontSize="18" Grid.Row="0" Grid.Column="0" />
+            <TextBlock Text="Email (as login name)" FontFamily="Segoe UI" FontSize="18" Grid.Row="0" Grid.Column="0" />
             <TextBox Width="250" Height="25" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <TextBlock Text="Password" FontFamily="Segua UI" FontSize="18" Grid.Row="0" Grid.Column="2" />
+            <TextBlock Text="Password" FontFamily="Segoe UI" FontSize="18" Grid.Row="0" Grid.Column="2" />
             <PasswordBox Width="250" Height="25" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 2 -->
-            <TextBlock Text="Full Name" FontFamily="Segua UI" FontSize="18" Grid.Row="1" Grid.Column="0" />
+            <TextBlock Text="Full Name" FontFamily="Segoe UI" FontSize="18" Grid.Row="1" Grid.Column="0" />
             <TextBox Width="250" Height="25" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <TextBlock Text="Date of Birth" FontFamily="Segua UI" FontSize="18" Grid.Row="1" Grid.Column="2" />
+            <TextBlock Text="Date of Birth" FontFamily="Segoe UI" FontSize="18" Grid.Row="1" Grid.Column="2" />
             <TextBox Width="250" Height="25" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 3 -->
-            <TextBlock Text="Blood Group" FontFamily="Segua UI" FontSize="18" Grid.Row="2" Grid.Column="0" />
+            <TextBlock Text="Blood Group" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="0" />
             <ComboBox x:Name="cmb_BloodGroups" ItemsSource="{Binding BloodGroups, Mode=TwoWay}" Width="250" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             
-            <TextBlock Text="Last Donated On" FontFamily="Segua UI" FontSize="18" Grid.Row="2" Grid.Column="2" />
-            <TextBox x:Name="txt_LastDonatedOn" Width="150" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="Last Donated On" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="2" />
+            <TextBox x:Name="txt_LastDonatedOn" IsEnabled="{Binding IsEverDonated, Mode=TwoWay}" Width="150" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <CheckBox Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
-                      DataContext="{Binding BloodGroups, Mode=TwoWay}" />
-            
-            <!-- Row 4 -->
-            <TextBlock Text="Address" FontFamily="Segua UI" FontSize="18" Grid.Row="3" Grid.Column="0" Grid.RowSpan="3" />
-            <RichEditBox Width="250" Height="100" Grid.Row="3" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                      DataContext="{Binding NeverDonated, Mode=TwoWay}" />
 
-            <TextBlock Text="Country" FontFamily="Segua UI" FontSize="18" Grid.Row="3" Grid.Column="2" />
-            <ComboBox x:Name="cmb_Countries" ItemsSource="{Binding Countries, Mode=TwoWay}" Width="250" Height="30" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <!--<ToggleButton x:Name="NeverDonated" Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
+                      DataContext="{Binding BloodGroups, Mode=TwoWay}" />-->
+
+            <!-- Row 4 -->
+            <TextBlock Text="Mobile#" FontFamily="Segoe UI" FontSize="18" Grid.Row="3" Grid.Column="0" />
+            <TextBox x:Name="txt_MobileNo" Width="250" Height="25" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Telephone#" FontFamily="Segoe UI" FontSize="18" Grid.Row="3" Grid.Column="2" />
+            <TextBox x:Name="txt_TelephoneNo" Width="250" Height="25" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 5 -->
-            <TextBlock Text="State" FontFamily="Segua UI" FontSize="18" Grid.Row="4" Grid.Column="2" />
-            <ComboBox x:Name="cmb_States" ItemsSource="{Binding States, Mode=TwoWay}" Width="250" Height="30" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock Text="Address" FontFamily="Segoe UI" FontSize="18" Grid.Row="4" Grid.Column="0" Grid.RowSpan="3" />
+            <RichEditBox x:Name="rtxt_Address" Width="250" Height="100" Grid.Row="4" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <TextBlock Text="Country" FontFamily="Segoe UI" FontSize="18" Grid.Row="4" Grid.Column="2" />
+            <ComboBox x:Name="cmb_Countries" ItemsSource="{Binding Countries, Mode=TwoWay}" Width="250" Height="30" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 6 -->
-            <TextBlock Text="City" FontFamily="Segua UI" FontSize="18" Grid.Row="5" Grid.Column="2" />
-            <TextBox Width="250" Height="25" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBlock Text="State" FontFamily="Segoe UI" FontSize="18" Grid.Row="5" Grid.Column="2" />
+            <ComboBox x:Name="cmb_States" ItemsSource="{Binding States, Mode=TwoWay}" Width="250" Height="30" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+            <!-- Row 7 -->
+            <TextBlock Text="City" FontFamily="Segoe UI" FontSize="18" Grid.Row="6" Grid.Column="2" />
+            <TextBox x:Name="txt_City" Width="250" Height="25" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 8 -->
-            <Button Content="Register" FontFamily="Segua UI" FontSize="16" Grid.Row="8" Grid.Column="0" />
-
+            <Button Content="Register" FontFamily="Segoe UI" FontSize="16" Height="40" Grid.Row="8" Grid.Column="0"  />
         </Grid>
 
         <VisualStateManager.VisualStateGroups>

@@ -6,6 +6,8 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <local:IDBViewModelLocator x:Name="Locator"></local:IDBViewModelLocator>
+
             <ResourceDictionary.MergedDictionaries>
 
                 <!-- 
@@ -14,7 +16,6 @@
                  -->
                 <ResourceDictionary Source="Common/StandardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
-        </ResourceDictionary>
+            </ResourceDictionary>
     </Application.Resources>
 </Application>
