@@ -74,7 +74,7 @@ namespace iDonateBlood
 
         private void NavigateToSearch()
         {
-            this.Frame.Navigate(typeof(SearchDonor));
+            this.Frame.Navigate(typeof(SearchDonorDetails));
         }
 
         /// <summary>
