@@ -56,8 +56,8 @@ namespace iDonateBlood
         {
             var bloodDonor = new BloodDonors { Email = "ravi.patil@itcube.net", 
                 Address="6th floor, crystal corporate, ITCube, Opp Light House, Bibwewadi-Kondhava Road, Above HDFC Bank, Bibwewadi",
-                City="Pune", NevenDonated=false, BloodGroup="O+ve", Country="India", DateOfBirth=new DateTime(1980, 02,01),
-                FullName ="Ravindra Patil", LastDonatedOn= new DateTime(2011, 01, 01), MobileNumber="+9198542154", 
+                City="Mumbai", NevenDonated=false, BloodGroup="AB-ve", Country="India", DateOfBirth=new DateTime(1980, 02,01),
+                FullName ="Jason Smirnnov", LastDonatedOn= new DateTime(2011, 01, 01), MobileNumber="+9198542154", 
                 Password="DefaultPassword#1", State="MS", TelephoneNumber="+912023564578" };
 
             InsertBloodDonor(bloodDonor);

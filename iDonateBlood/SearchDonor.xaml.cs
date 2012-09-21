@@ -1,4 +1,5 @@
 ﻿using iDonateBlood.Models;
+using iDonateBlood.ViewModels;
 using Microsoft.WindowsAzure.MobileServices;
 using System;
 using System.Collections.Generic;
@@ -23,16 +24,18 @@ namespace iDonateBlood
     /// </summary>
     public sealed partial class SearchDonor : Page
     {
+        private IMobileServiceTable<BloodDonors> donorTableList = App.MobileService.GetTable<BloodDonors>();
+        private MobileServiceCollectionView<BloodDonors> items;
         public SearchDonor()
         {
             this.InitializeComponent();
             //test
-            this.DataContext = new CityandBloodGroup();
+            this.DataContext = new RegisterDonorViewModel();
             //donnerList.ItemsSource = App.MobileService.GetTable<BloodDonors>();
-            IMobileServiceTable<BloodDonors> donorTableList= App.MobileService.GetTable<BloodDonors>();
-            MobileServiceCollectionView<BloodDonors> items = donorTableList.ToCollectionView();
+            items = donorTableList.ToCollectionView();
             var asdsad = items.Take(1);
             donorList.ItemsSource = items;
+            
             
         }
 
@@ -48,6 +51,29 @@ namespace iDonateBlood
         private void cbCity_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var city = cbCity.SelectedItem;
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+         {
+            if (cbCity.SelectedValue != null && cbBloodGroup.SelectedValue != null)
+            {
+                items = donorTableList
+                    .Where(d => d.City == cbCity.SelectedValue && d.BloodGroup == cbBloodGroup.SelectedValue)
+                    .ToCollectionView();
+            }
+            else if (cbCity.SelectedValue != null && cbBloodGroup.SelectedValue == null)
+            {
+                items = donorTableList
+                    .Where(d => d.City == cbCity.SelectedValue)
+                    .ToCollectionView();
+            }
+            else
+            {
+                items = donorTableList
+                    .Where(d => d.BloodGroup == cbBloodGroup.SelectedValue)
+                    .ToCollectionView();
+            }
+            donorList.ItemsSource = items;
         }
     }
 }

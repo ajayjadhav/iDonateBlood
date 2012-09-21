@@ -118,6 +118,9 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="IDBViewModelLocator.cs" />
     <Compile Include="Models\BloodDonors.cs" />
+    <Compile Include="SearchDonorDetails.xaml.cs">
+      <DependentUpon>SearchDonorDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,10 @@
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Common\ReadMe.txt" />
+    <Page Include="SearchDonorDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MyMvvmView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

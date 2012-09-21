@@ -10,8 +10,8 @@
 
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
-        <Grid.ColumnDefinitions>
+        
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="400" />
         </Grid.ColumnDefinitions>
@@ -22,6 +22,11 @@
         </Grid.RowDefinitions>
         <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
             <StackPanel Orientation="Vertical">
+                <!--<ProgressRing x:Name="ProgressRing" Foreground="White" 
+HorizontalAlignment="Center" IsActive="True" 
+        MaxHeight="30" MinHeight="30" MaxWidth="30" 
+MinWidth="30"></ProgressRing>-->
+
                 <TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Text="Donner's List" Foreground="White"
@@ -52,14 +57,14 @@
                                         <StackPanel Orientation="Horizontal"  Grid.Row="1" Grid.Column="1">
                                             <Button Style="{StaticResource ResourceKey=EmailButton}" VerticalAlignment="Center"></Button>
                                             <TextBlock x:Name="Email"  Text="{Binding Path=Email}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
-                                            
+
                                         </StackPanel>
                                         <!--<TextBlock Text="Cell#:" Foreground="White" FontSize="20" Margin="2" Grid.Row="2" VerticalAlignment="Center"></TextBlock>-->
-                                        
+
                                         <StackPanel Orientation="Horizontal"  Grid.Row="2" Grid.Column="1">
                                             <Button Style="{StaticResource ResourceKey=PhoneCallButton}" VerticalAlignment="Center"></Button>
                                             <TextBlock x:Name="MobileNumber"  Text="{Binding Path=MobileNumber}" Foreground="White" FontSize="20" VerticalAlignment="Center"></TextBlock>
-                                            
+
                                         </StackPanel>
 
                                         <!--<TextBlock Text="Address:" Foreground="White" FontSize="20" Margin="2" Grid.Row="3"></TextBlock>-->
@@ -126,13 +131,13 @@
                         >
                     </TextBlock>
                     <ComboBox x:Name="cbBloodGroup" 
-                              ItemsSource="{Binding BloodGroupList, Mode=OneWay}"
+                              ItemsSource="{Binding BloodGroups, Mode=OneWay}"
                               SelectedValue="{Binding SelectedBloodGroup, Mode=TwoWay}"
                               HorizontalAlignment="Left" Margin="2" Width="200">
                     </ComboBox>
 
                 </StackPanel>
-                <Button Content="Search" Foreground="White" FontSize="20"></Button>
+                <Button Content="Search" Foreground="White" Click="Search_Click" FontSize="20"></Button>
             </StackPanel>
         </Border>
 

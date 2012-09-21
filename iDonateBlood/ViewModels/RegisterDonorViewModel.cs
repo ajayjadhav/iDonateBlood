@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace iDonateBlood.ViewModels
 {
@@ -10,8 +11,9 @@ namespace iDonateBlood.ViewModels
     /// See http://www.galasoft.ch/mvvm
     /// </para>
     /// </summary>
-    public class RegisterDonorViewModel : ViewModelBase
+    public class RegisterDonorViewModel : ViewModelBase, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Initializes a new instance of the RegisterDonorViewModel class.
         /// </summary>
@@ -40,10 +42,15 @@ namespace iDonateBlood.ViewModels
             BloodGroups.Add("AB-ve");
             BloodGroups.Add("BOMBAY AG");
 
+            CityList = new List<string>();
+            CityList.Add("Pune");
+            CityList.Add("Mumbai");
+            CityList.Add("Banglore");
+
             NeverDonated = false;
-        }    
+        }
 
-
+        public IList<string> CityList { get; set; }
         public IList<String> Countries { get; set; }
         public IList<String> States { get; set; }
         public IList<String> BloodGroups { get; set; }
@@ -55,6 +62,34 @@ namespace iDonateBlood.ViewModels
                 return !NeverDonated;
             }
 
+        }
+
+        private string _selectedCity;
+        public string SelectedCity
+        {
+            get { return _selectedCity; }
+            set
+            {
+                _selectedCity = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("SelectedCity"));
+                }
+            }
+        }
+
+        private string _selectedBloodGroup;
+        public string SelectedBloodGroup
+        {
+            get { return _selectedBloodGroup; }
+            set
+            {
+                _selectedBloodGroup = value;
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("SelectedBloodGroup"));
+                }
+            }
         }
 
     }
