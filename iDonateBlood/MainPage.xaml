@@ -19,11 +19,32 @@
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
         <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
-            <TextBlock
+            <StackPanel Orientation="Vertical">
+                <TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 Text="Donner's List" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,20"
             />
+                <ListView
+                x:Name="donnerList"
+                >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Width="320" Height="200" Source="~/Assets/user_64.png" />
+                                <TextBlock Grid.Column="1"
+                                    HorizontalAlignment="Center"
+                                    Text="{Binding Path=Caption}" Foreground="Navy"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
 
         </Border>
 
@@ -31,7 +52,7 @@
             <StackPanel Orientation="Vertical" Width="400">
                 <TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
-                Text="SearchPanel" Foreground="White"
+                Text="Search Blood Donner" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,0" Width="260"
                 />
                 <StackPanel Orientation="Horizontal">
@@ -41,13 +62,13 @@
                         Foreground="White"
                         FontSize="20" 
                         Margin="2" 
-                        Width="80"
+                        Width="160"
                         >
                     </TextBlock>
                     <ComboBox x:Name="cbCity" 
-                              ItemsSource="{Binding MyItemsSource, Mode=OneWay}"
-                              SelectedValue="{Binding MySelectedValue, Mode=TwoWay}"
-                              HorizontalAlignment="Left" 
+                              ItemsSource="{Binding CityList, Mode=OneWay}"
+                              SelectedValue="{Binding SelectedCity, Mode=TwoWay}"
+                              HorizontalAlignment="Left" SelectionChanged="cbCity_SelectionChanged"
                               Margin="2" Width="200">
                         <!--<x:String>Pune</x:String>
                         <x:String>Mumbai</x:String>
@@ -64,12 +85,14 @@
                         Width="160"
                         >
                     </TextBlock>
-                    <ComboBox x:Name="cbBloodGroup" HorizontalAlignment="Left" Margin="2" Width="100">
-                        <x:String>O +</x:String>
-                        <x:String>AB +</x:String>
-                        <x:String>B +</x:String>
+                    <ComboBox x:Name="cbBloodGroup" 
+                              ItemsSource="{Binding BloodGroupList, Mode=OneWay}"
+                              SelectedValue="{Binding SelectedBloodGroup, Mode=TwoWay}"
+                              HorizontalAlignment="Left" Margin="2" Width="200">
                     </ComboBox>
+                    
                 </StackPanel>
+                <Button Content="Search" Foreground="White" FontSize="20"></Button>
             </StackPanel>
         </Border>
 
