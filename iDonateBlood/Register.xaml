@@ -59,55 +59,58 @@
             
             <!-- Row 1 -->
             <TextBlock Text="Email (as login name)" FontFamily="Segoe UI" FontSize="18" Grid.Row="0" Grid.Column="0" />
-            <TextBox Width="250" Height="25" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_Email" Text="{Binding Path=Email, Mode=TwoWay}" Width="250" Height="25" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-            <TextBlock Text="Password" FontFamily="Segoe UI" FontSize="18" Grid.Row="0" Grid.Column="2" />
-            <PasswordBox Width="250" Height="25" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
+            <TextBlock Text="Gender" FontFamily="Segoe UI" FontSize="18" Grid.Row="0" Grid.Column="2" />
+            <ComboBox x:Name="cmb_GenderList" ItemsSource="{Binding GenderList}" SelectedItem="{Binding Path=SelectedGender, Mode=OneWay}"
+                     
+                      Width="250" Height="30" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            
             <!-- Row 2 -->
             <TextBlock Text="Full Name" FontFamily="Segoe UI" FontSize="18" Grid.Row="1" Grid.Column="0" />
-            <TextBox Width="250" Height="25" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_FullName" Text="{Binding Path=FullName, Mode=TwoWay}" Width="250" Height="25" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <TextBlock Text="Date of Birth" FontFamily="Segoe UI" FontSize="18" Grid.Row="1" Grid.Column="2" />
-            <TextBox Width="250" Height="25" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_DoB" Text="{Binding Path=DateOfBirth, Mode=TwoWay}" Width="250" Height="25" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 3 -->
             <TextBlock Text="Blood Group" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="0" />
-            <ComboBox x:Name="cmb_BloodGroups" ItemsSource="{Binding BloodGroups, Mode=TwoWay}" Width="250" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmb_BloodGroups" ItemsSource="{Binding BloodGroups}" SelectedItem="{Binding Path=SelectedBloodGroup, Mode=TwoWay}" Width="250" Height="30" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             
             <TextBlock Text="Last Donated On" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="2" />
-            <TextBox x:Name="txt_LastDonatedOn"
-                     Width="150" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_LastDonatedOn" Text="{Binding LastDonatedOn, Mode=TwoWay}"
+                     Width="250" Height="25" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <!--<CheckBox x:Name="isDonatedBefore" Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
-                      DataContext="{Binding NeverDonated, Mode=TwoWay}" />-->
+                      DataContext="{Binding NeverDonated, Mode=TwoWay}"  />-->
 
             <!--<ToggleButton x:Name="NeverDonated" Grid.Row="2" Grid.Column="3" Margin="160,0,0,0" Content="Never Donated" 
                       DataContext="{Binding BloodGroups, Mode=TwoWay}" />-->
 
             <!-- Row 4 -->
             <TextBlock Text="Mobile#" FontFamily="Segoe UI" FontSize="18" Grid.Row="3" Grid.Column="0" />
-            <TextBox x:Name="txt_MobileNo" Width="250" Height="25" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_MobileNo" Text="{Binding Path=MobileNumber, Mode=TwoWay}" Width="250" Height="25" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" 
+                     VerticalAlignment="Top"/>
 
             <TextBlock Text="Telephone#" FontFamily="Segoe UI" FontSize="18" Grid.Row="3" Grid.Column="2" />
-            <TextBox x:Name="txt_TelephoneNo" Width="250" Height="25" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_TelephoneNo" Text="{Binding Path=TelephoneNumber, Mode=TwoWay}" Width="250" Height="25" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 5 -->
             <TextBlock Text="Address" FontFamily="Segoe UI" FontSize="18" Grid.Row="4" Grid.Column="0" Grid.RowSpan="3" />
-            <RichEditBox x:Name="rtxt_Address" Width="250" Height="100" Grid.Row="4" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="rtxt_Address" Text="{Binding Path=Address, Mode=TwoWay}" Width="250" Height="100" Grid.Row="4" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <TextBlock Text="Country" FontFamily="Segoe UI" FontSize="18" Grid.Row="4" Grid.Column="2" />
-            <ComboBox x:Name="cmb_Countries" ItemsSource="{Binding Countries, Mode=TwoWay}" Width="250" Height="30" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <ComboBox x:Name="cmb_Countries" ItemsSource="{Binding Countries}" SelectedValue="{Binding Path=SelectedCountry, Mode=TwoWay}" Width="250" Height="30" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 6 -->
             <TextBlock Text="State" FontFamily="Segoe UI" FontSize="18" Grid.Row="5" Grid.Column="2" />
-            <ComboBox x:Name="cmb_States" ItemsSource="{Binding States, Mode=TwoWay}" Width="250" Height="30" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <ComboBox x:Name="cmb_States" ItemsSource="{Binding States}" SelectedValue="{Binding Path=SelectedState, Mode=TwoWay}" Width="250" Height="30" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
             <!-- Row 7 -->
             <TextBlock Text="City" FontFamily="Segoe UI" FontSize="18" Grid.Row="6" Grid.Column="2" />
-            <TextBox x:Name="txt_City" Width="250" Height="25" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="txt_City" Text="{Binding Path=City, Mode=TwoWay}" Width="250" Height="25" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <!-- Row 8 -->
-            <Button Content="Register" FontFamily="Segoe UI" FontSize="16" Height="40" Grid.Row="8" Grid.Column="0" Click="Button_Click_1" />
+            <Button Content="Register" Command="{Binding Path=RegisterCommand}" FontFamily="Segoe UI" FontSize="16" Height="40" Grid.Row="8" Grid.Column="0" />
 
             <TextBlock x:Name="SuccessMsg" Grid.Row="8" Grid.Column="1" FontFamily="Segoe UI" FontSize="16" Height="40" />
         </Grid>

@@ -42,6 +42,7 @@ namespace iDonateBlood
                     liveIdClient.Logout();
 
                 LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
+
                 if (result.Status == LiveConnectSessionStatus.Connected)
                 {
                     session = result.Session;
@@ -49,11 +50,16 @@ namespace iDonateBlood
                     LiveOperationResult meResult = await client.GetAsync("me");
                     MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
 
-                    string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-                    var message = string.Format("You are now logged in - {0}", loginResult.UserId);
-                    var dialog = new MessageDialog(message, title);
-                    dialog.Commands.Add(new UICommand("OK"));
-                    await dialog.ShowAsync();
+                    //string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
+                    App.LoginName = string.Format("{0}", meResult.Result["name"]);
+                    App.Gender = string.Format("{0}", meResult.Result["gender"]);
+                    App.UserID = string.Format("{0}", loginResult.UserId);
+
+                    //var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                    //var dialog = new MessageDialog(message, title);
+                    //dialog.Commands.Add(new UICommand("OK"));
+                    //await dialog.ShowAsync();
+                    
                 }
                 else
                 {

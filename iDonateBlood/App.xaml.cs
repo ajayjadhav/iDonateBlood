@@ -32,6 +32,10 @@ namespace iDonateBlood
             "kUgZTCHALJnCneYRcdMAZeVFNxDZjo80"
         );
 
+        public static string LoginName {get; set;}
+        public static string Gender { get; set; }
+        public static string UserID { get; set; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

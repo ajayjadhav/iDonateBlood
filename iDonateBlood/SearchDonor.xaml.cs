@@ -24,8 +24,8 @@ namespace iDonateBlood
     /// </summary>
     public sealed partial class SearchDonor : Page
     {
-        private IMobileServiceTable<BloodDonors> donorTableList = App.MobileService.GetTable<BloodDonors>();
-        private MobileServiceCollectionView<BloodDonors> items;
+        private IMobileServiceTable<BloodDonor> donorTableList = App.MobileService.GetTable<BloodDonor>();
+        private MobileServiceCollectionView<BloodDonor> items;
         public SearchDonor()
         {
             this.InitializeComponent();

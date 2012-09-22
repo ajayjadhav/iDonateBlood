@@ -21,11 +21,10 @@ namespace iDonateBlood
                 {
                     DateTimeFormatInfo formatA = new DateTimeFormatInfo();
                     DateTime Date = DateTime.Parse(lastDonatedDate.ToString(), formatA);
-                    return Date.ToString(" MM/dd/yyyy");
+                    return Date.ToString("MM-dd-yyyy");
                 }
             }
             return null;
-
         }
 
 

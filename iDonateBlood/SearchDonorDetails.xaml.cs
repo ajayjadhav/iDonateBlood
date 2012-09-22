@@ -24,8 +24,8 @@ namespace iDonateBlood
     /// </summary>
     public sealed partial class SearchDonorDetails : iDonateBlood.Common.LayoutAwarePage
     {
-        private IMobileServiceTable<BloodDonors> donorTableList = App.MobileService.GetTable<BloodDonors>();
-        private MobileServiceCollectionView<BloodDonors> items;
+        private IMobileServiceTable<BloodDonor> donorTableList = App.MobileService.GetTable<BloodDonor>();
+        private MobileServiceCollectionView<BloodDonor> items;
         public SearchDonorDetails()
         {
             this.InitializeComponent();
@@ -37,11 +37,11 @@ namespace iDonateBlood
 
         private void  Search_Click(object sender, RoutedEventArgs e)
         {
-             IMobileServiceTable<BloodDonors> donorTableList = App.MobileService.GetTable<BloodDonors>();
+             IMobileServiceTable<BloodDonor> donorTableList = App.MobileService.GetTable<BloodDonor>();
 
             var city =  cbCity.SelectedValue != null ? cbCity.SelectedValue.ToString() : "";
             var bloodGroup = cbBloodGroup.SelectedValue != null ? cbBloodGroup.SelectedValue.ToString() : "";
-            MobileServiceCollectionView<BloodDonors> searchList;
+            MobileServiceCollectionView<BloodDonor> searchList;
             if (cbCity.SelectedValue != null && cbBloodGroup.SelectedValue != null && items != null)
             {
                  searchList = (from d in donorTableList

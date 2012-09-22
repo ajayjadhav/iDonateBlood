@@ -37,8 +37,8 @@
             <Button x:Name="backButton" Click="GoBack" IsEnabled="False" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <ProgressBar Grid.Row="1" x:Name="authenticationProgress" Width="Auto" HorizontalAlignment="Left" IsEnabled="False" BorderThickness="5"></ProgressBar>
-        <Image Grid.Row="2" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="Auto" Source="Assets/donate-blood.png"/>
+        <ProgressBar Grid.Row="1" x:Name="authenticationProgress" Width="Auto" HorizontalAlignment="Left" IsEnabled="False" 
+                     BorderThickness="5"></ProgressBar>
 
         <VisualStateManager.VisualStateGroups>
 

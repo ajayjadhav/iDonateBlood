@@ -10,7 +10,6 @@ namespace iDonateBlood.Models
     {
         public RegistrationData()
         {
-
         }
 
         public List<String> Countries { get; set; }
