@@ -24,6 +24,7 @@ namespace iDonateBlood
             //this.DataContext = new RegisterDonorViewModel();
 
             Messenger.Default.Register<string>(this, action => NavigateToSearch(action));
+
         }
 
         private void NavigateToSearch(string action)

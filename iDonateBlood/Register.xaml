@@ -71,7 +71,12 @@
             <TextBox x:Name="txt_FullName" Text="{Binding Path=FullName, Mode=TwoWay}" Width="250" Height="25" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
             <TextBlock Text="Date of Birth" FontFamily="Segoe UI" FontSize="18" Grid.Row="1" Grid.Column="2" />
-            <TextBox x:Name="txt_DoB" Text="{Binding Path=DateOfBirth, Mode=TwoWay}" Width="250" Height="25" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal">
+                <ComboBox Margin="0,0,10,0" x:Name="cmb_Month" SelectedItem="{Binding Path=SelectedMonth, Mode=OneWay}" Width="100" Height="25">
+                </ComboBox>
+                <ComboBox Margin="0,0,10,0" x:Name="cmb_Day" ItemsSource="{Binding Path=Days, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedDay, Mode=OneWay}" Width="60" Height="25" />
+                <ComboBox x:Name="cmb_Year" ItemsSource="{Binding Path=Years, Mode=TwoWay}" SelectedItem="{Binding Path=SelectedYear, Mode=OneWay}" Width="70" Height="25"/>
+            </StackPanel>
 
             <!-- Row 3 -->
             <TextBlock Text="Blood Group" FontFamily="Segoe UI" FontSize="18" Grid.Row="2" Grid.Column="0" />

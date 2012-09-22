@@ -47,11 +47,9 @@ namespace iDonateBlood.Models
         [DataMember(Name = "city", IsRequired = true)]
         public string City { get; set; }
 
-        public string FullAddress
+        public virtual string FullAddress
         {
             get { return Address+", "+City+", "+State+", "+Country; }
         }
-        
-
     }
 }

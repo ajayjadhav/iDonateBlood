@@ -59,7 +59,6 @@ namespace iDonateBlood
                     //var dialog = new MessageDialog(message, title);
                     //dialog.Commands.Add(new UICommand("OK"));
                     //await dialog.ShowAsync();
-                    
                 }
                 else
                 {
@@ -68,7 +67,6 @@ namespace iDonateBlood
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
                 }
-
             }
         }
 
