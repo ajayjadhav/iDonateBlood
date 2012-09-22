@@ -49,7 +49,7 @@
 
                     
                 </Grid.RowDefinitions>
-                <Border x:Name="DonnerList" Height="Auto" BorderBrush="Gray"  BorderThickness="5,5,0, 5" Grid.Column="0">
+                <Border x:Name="DonnerList" Height="Auto"  Grid.Column="0">
                     <StackPanel Orientation="Vertical">
                         <!--<ProgressRing x:Name="ProgressRing" Foreground="White" 
 HorizontalAlignment="Center" IsActive="True" 
@@ -61,8 +61,9 @@ MinWidth="30"></ProgressRing>-->
                 Text="Donner's List" Foreground="White"
                 FontSize="26.67" Margin="0,40,0,20"
             />-->
+                        
                         <ScrollViewer MaxHeight="540">
-                            <ListView x:Name="donorList" BorderBrush="LightGray" BorderThickness="1" >
+                            <ListView x:Name="donorList" >
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                     <Grid Background="PURPLE">
@@ -75,11 +76,12 @@ MinWidth="30"></ProgressRing>-->
                                                     <RowDefinition></RowDefinition>
                                                     <RowDefinition></RowDefinition>
                                                     <RowDefinition></RowDefinition>
-                                                    <RowDefinition></RowDefinition>
+                                                    <!--<RowDefinition></RowDefinition>-->
                                                 </Grid.RowDefinitions>
                                                 <Grid.ColumnDefinitions>
                                                     <!--<ColumnDefinition Width="140" />-->
                                                     <ColumnDefinition Width="*" />
+                                                    <!--<ColumnDefinition Width="140" />-->
                                                 </Grid.ColumnDefinitions>
                                                 <!--<TextBlock Text="Name:" Foreground="White" FontSize="20" Margin="2"  Grid.Row="0"></TextBlock>-->
                                                 <TextBlock x:Name="Fullname" Text="{Binding Path=FullName}" Foreground="White" FontSize="26"  Grid.Row="0" Grid.Column="1"></TextBlock>
@@ -100,7 +102,7 @@ MinWidth="30"></ProgressRing>-->
                                                 <!--<TextBlock Text="Address:" Foreground="White" FontSize="20" Margin="2" Grid.Row="3"></TextBlock>-->
                                                 <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
                                                     <Button Style="{StaticResource ResourceKey=AddressButton}" VerticalAlignment="Center"></Button>
-                                                    <TextBlock x:Name="FullAddress"  Text="{Binding Path=FullAddress}" TextWrapping="Wrap" Width="605" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
+                                                    <TextBlock x:Name="FullAddress"  Text="{Binding Path=FullAddress}" TextWrapping="Wrap" Width="490" Foreground="White" FontSize="14" VerticalAlignment="Center" ></TextBlock>
                                                 <!--<TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20"  VerticalAlignment="Center"></TextBlock>
                                                 <TextBlock Text="{Binding Path=City}" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
                                                 <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
@@ -108,11 +110,18 @@ MinWidth="30"></ProgressRing>-->
                                                 <TextBlock Text=", " TextWrapping="Wrap"  Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>
                                                 <TextBlock Text="{Binding Path=Country}" Foreground="White" FontSize="20" VerticalAlignment="Center" ></TextBlock>-->
                                                 </StackPanel>
-                                                <StackPanel Orientation="Horizontal"  Grid.Row="4" Grid.Column="1">
-                                                    <TextBlock Text="Last Donated On:- " TextWrapping="Wrap"  Foreground="White"  ></TextBlock>
-                                                    <TextBlock x:Name="LastDonatedOn" Text="{Binding Path=LastDonatedOn, Converter={StaticResource DateTypeConverter}}"  TextWrapping="Wrap"  Foreground="White"   ></TextBlock>
-                                                </StackPanel>
+                                                
+                                                
                                             </Grid>
+                                            <StackPanel Grid.Row="4" Orientation="Vertical" Grid.Column="2" Width="120">
+                                                <TextBlock x:Name="txtBloodGroup" Text="{Binding Path=BloodGroup}" Padding="15,0,0,0"  HorizontalAlignment="Center"  Width="100" Foreground="White" FontSize="26"   ></TextBlock>
+                                                <StackPanel Orientation="Vertical"  Grid.Row="4" Grid.Column="1" Width="120" VerticalAlignment="Center">
+                                                    <TextBlock Text="Last Donated On" TextWrapping="Wrap" HorizontalAlignment="Center"  Foreground="White"  ></TextBlock>
+
+
+                                                    <TextBlock x:Name="LastDonatedOn" Text="{Binding Path=LastDonatedOn, Converter={StaticResource DateTypeConverter}}"  TextWrapping="Wrap"  Foreground="White" HorizontalAlignment="Center"  ></TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>
@@ -123,7 +132,7 @@ MinWidth="30"></ProgressRing>-->
 
                 </Border>
 
-                <Border x:Name="SearchPanel" Height="Auto" BorderBrush="Gray" Padding="0,20" BorderThickness="5" Width="400" Grid.Column="1">
+                <Border x:Name="SearchPanel" Height="Auto"  Padding="0,20"  Width="400" Grid.Column="1">
                     <StackPanel Orientation="Vertical" Width="400">
                         <!--<TextBlock
                 HorizontalAlignment="Left" VerticalAlignment="Top"
