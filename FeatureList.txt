@@ -1,0 +1,37 @@
+Category: Health / Fitness
+
+- Blood donors (iDonateBlood)
+
+iDonateBlood is Windows Store App. It hosts a list of registered blood donors. Patients with the help of their relatives who are in need of blood can use this app to search blood donors matching with specific blood group in the city. Blood donors can be contacted using their email / phone / sms.
+
+	- search blood donors *******
+		- city based *******
+		- blood group *******
+
+	- list of blood donors *******
+
+	- Details of the Blood donor *******
+		- Bing Map / Google Map of
+		- address, contact info *******
+
+	- contact blood donors $$$$$$ (P2)
+		- through email (/ phone / sms)
+	- Appreciate blood donors
+		- after donation
+		- after showing willingness to donate
+		- 
+	- Add blood requirement $$$$$$ (P2)
+		- patient info, blood group, etc
+		- relative info
+		- required by when?
+		- place, hospital address
+
+	- Register as donor *******
+		- add donor details *******
+		- contact details *******
+		- remind donor for next possible blood donation
+
+	- Search Blood Banks
+		- list of blood banks
+		- show map using Bing maps
+
